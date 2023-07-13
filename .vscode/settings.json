@@ -11,8 +11,8 @@
 		"*-format-*/**": true
 	},
 	"git.ignoredRepositories": [
-		"asdf-format-gitsubmodule",
-		"asdf-format-gitsubtree",
-		"asdf-format-googlerepo"
+		"plugins-format-gitsubmodule",
+		"plugins-format-gitsubtree",
+		"plugins-format-googlerepo"
 	]
 }
