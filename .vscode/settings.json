@@ -1,0 +1,18 @@
+{
+	"search.exclude": {
+		"**/.git": true,
+		"**/node_modules": true,
+		"*-format-*/**": true
+	},
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true,
+		"*-format-*/**": true
+	},
+	"git.ignoredRepositories": [
+		"asdf-format-gitsubmodule",
+		"asdf-format-gitsubtree",
+		"asdf-format-googlerepo"
+	]
+}

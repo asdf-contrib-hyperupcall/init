@@ -1,0 +1,5 @@
+node_modules/
+asdf-format-gitsubmodule/
+asdf-format-gitsubtree/
+asdf-format-googlerepo/
+*.env

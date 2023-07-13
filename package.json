@@ -1,0 +1,21 @@
+{
+	"name": "asdf-forks",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "node ./main.js"
+	},
+	"dependencies": {
+		"@gitbeaker/rest": "^39.6.0",
+		"@octokit/rest": "^20.0.1",
+		"@types/mdast": "^4.0.0",
+		"@types/node": "^20.4.2",
+		"dotenv": "^16.3.1",
+		"execa": "^7.1.1",
+		"remark": "^14.0.3",
+		"remark-gfm": "^3.0.1",
+		"remark-parse": "^10.0.2",
+		"typescript": "^5.1.6",
+		"unified": "^10.1.2"
+	}
+}
