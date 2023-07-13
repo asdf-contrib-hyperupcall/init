@@ -42,7 +42,7 @@ const { values: args } = parseArgs({
 })
 if (args.help) {
 	console.error(
-		'asdf.main [--no-remote] [--stage <readme|remote|repo|submodule|subtree>] [--help]',
+		'asdf.main [--no-remote] [--stage <readme|remote|repo|submodule|subtree>|terraform] [--help]',
 	)
 	process.exit(0)
 }
@@ -308,75 +308,125 @@ if (!args.stage || args.stage === 'repo') {
 }
 
 // git submodule
-{
-	if (!args.stage || args.stage === 'submodule') {
-		/** @type {Plugin[]} */
-		const plugins = JSON.parse(
-			await fs.readFile('./plugins.remote.json', 'utf-8'),
-		).plugins
 
-		for (let i = 0; i < plugins.length; ++i) {
-			const plugin = plugins[i]
+if (!args.stage || args.stage === 'submodule') {
+	/** @type {Plugin[]} */
+	const plugins = JSON.parse(
+		await fs.readFile('./plugins.remote.json', 'utf-8'),
+	).plugins
 
-			const submoduleDir = `./asdf-format-gitsubmodule/repos/${plugin.repoName}`
-			const stat = await fs.stat(submoduleDir).catch(() => false)
-			if (stat && stat.isDirectory()) {
-				console.info(
-					`(${i + 1}/${plugins.length}) Updating submodule for ${submoduleDir}`,
-				)
-				await $`git -C  ./asdf-format-gitsubmodule update repos/${plugin.repoName}`
-			} else {
-				console.info(
-					`(${i + 1}/${plugins.length}) Adding submodule for ${
-						plugin.repoName
-					}`,
-				)
-				await $`git -C ./asdf-format-gitsubmodule submodule add ${plugin.repoUrl} repos/${plugin.repoName}`
-			}
+	for (let i = 0; i < plugins.length; ++i) {
+		const plugin = plugins[i]
+
+		const submoduleDir = `./asdf-format-gitsubmodule/repos/${plugin.repoName}`
+		const stat = await fs.stat(submoduleDir).catch(() => false)
+		if (stat && stat.isDirectory()) {
+			console.info(
+				`(${i + 1}/${plugins.length}) Updating submodule for ${submoduleDir}`,
+			)
+			await $`git -C  ./asdf-format-gitsubmodule update repos/${plugin.repoName}`
+		} else {
+			console.info(
+				`(${i + 1}/${plugins.length}) Adding submodule for ${plugin.repoName}`,
+			)
+			await $`git -C ./asdf-format-gitsubmodule submodule add ${plugin.repoUrl} repos/${plugin.repoName}`
 		}
 	}
 }
 
 // git subtree
-{
-	if (!args.stage || args.stage === 'subtree') {
-		/** @type {Plugin[]} */
-		const plugins = JSON.parse(
-			await fs.readFile('./plugins.remote.json', 'utf-8'),
-		).plugins
 
-		let remoteBatch = 1
-		for (let i = 0; i < plugins.length; i += remoteBatch) {
-			const slice = plugins.slice(i, i + remoteBatch)
+if (!args.stage || args.stage === 'subtree') {
+	/** @type {Plugin[]} */
+	const plugins = JSON.parse(
+		await fs.readFile('./plugins.remote.json', 'utf-8'),
+	).plugins
 
-			const promises = slice.map((plugin) => {
-				return new Promise(async (resolve, reject) => {
-					try {
-						const subtreeDir = `./asdf-format-gitsubtree/repos/${plugin.repoName}`
-						const stat = await fs.stat(subtreeDir).catch(() => false)
-						if (stat && stat.isDirectory()) {
-							// console.info(
-							// 	`(${i + 1}/${
-							// 		plugins.length
-							// 	}) Updating subtree for ${subtreeDir}`,
-							// )
-							// await $`git -C ./asdf-format-gitsubtree subtree -P repos/${plugin.repoName} pull --squash ${plugin.repoUrl} HEAD`
-						} else {
-							console.info(
-								`(${i + 1}/${plugins.length}) Adding subtree for ${
-									plugin.repoName
-								}`,
-							)
-							await $`git -C ./asdf-format-gitsubtree subtree -P repos/${plugin.repoName} add --squash ${plugin.repoUrl} HEAD`
-						}
+	let remoteBatch = 1
+	for (let i = 0; i < plugins.length; i += remoteBatch) {
+		const slice = plugins.slice(i, i + remoteBatch)
 
-						resolve()
-					} catch (err) {
-						reject(err)
+		const promises = slice.map((plugin) => {
+			return new Promise(async (resolve, reject) => {
+				try {
+					const subtreeDir = `./asdf-format-gitsubtree/repos/${plugin.repoName}`
+					const stat = await fs.stat(subtreeDir).catch(() => false)
+					if (stat && stat.isDirectory()) {
+						// console.info(
+						// 	`(${i + 1}/${
+						// 		plugins.length
+						// 	}) Updating subtree for ${subtreeDir}`,
+						// )
+						// await $`git -C ./asdf-format-gitsubtree subtree -P repos/${plugin.repoName} pull --squash ${plugin.repoUrl} HEAD`
+					} else {
+						console.info(
+							`(${i + 1}/${plugins.length}) Adding subtree for ${
+								plugin.repoName
+							}`,
+						)
+						await $`git -C ./asdf-format-gitsubtree subtree -P repos/${plugin.repoName} add --squash ${plugin.repoUrl} HEAD`
 					}
-				})
+
+					resolve()
+				} catch (err) {
+					reject(err)
+				}
 			})
-			await Promise.all(promises)
-		}
+		})
+		await Promise.all(promises)
 	}
+}
+
+// Terraform
+if (!args.stage || args.stage === 'terraform') {
+	/** @type {Plugin[]} */
+	const plugins = JSON.parse(
+		await fs.readFile('./plugins.remote.json', 'utf-8'),
+	).plugins
+
+	const pluginsNoDuplicates = plugins.filter((plugin, plugini) => {
+		const plugin2i = plugins.findIndex((plugin2) => {
+			return plugin2.repoName === plugin.repoName
+		})
+
+		return plugini === plugin2i
+	})
+
+	let s = ''
+	for (const plugin of pluginsNoDuplicates) {
+		let slug = `${plugin.repoOwner}/${plugin.repoName}`
+			.replace('-', '_')
+			.replace('/', '__')
+		if (/^\d/u.test(slug)) {
+			slug = '_' + slug
+		}
+
+		s += `
+locals {
+	${slug}_repo_url = startswith("${plugin.repoName}", "asdf-") ? "${plugin.repoName}" : "asdf-${plugin.repoName}"
+}
+resource "github_repository" "${slug}" {
+  name                 = local.${slug}_repo_url
+  description          = "Not supported"
+  homepage_url         = ""
+  visibility           = "public"
+  has_issues           = false
+  has_discussions      = false
+  has_projects         = false
+  has_wiki             = false
+  auto_init            = false
+  vulnerability_alerts = false
+
+  lifecycle {
+    precondition {
+      condition     = startswith(local.${slug}_repo_url, "asdf-")
+      error_message = "Repository name '\${local.${slug}_repo_url}' must start with 'asdf-'"
+    }
+  }
+}\n`
+	}
+
+	const outputFile = './terraform/repos.tf'
+	console.log(`Writing to ${outputFile}...`)
+	await fs.writeFile(outputFile, s)
 }
