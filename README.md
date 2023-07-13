@@ -1,11 +1,9 @@
+> **Warning**
+> **This repository is NOT officially supported by the asdf team. It is something I ([hyperupcall](https://github.com/hyperupcall)) am _personally_ experimenting with. Use at your own risk!**
+
 # init
 
 This repository facilitates the management of all other repositories in this organization.
-
-## NOTICE
-
-> :danger:
-> **This repository is NOT officially supported by the asdf team. It is something I am actively experimenting with. Use at your own risk!**
 
 Extracts all of the repositories listed in [asdf-vm/asdf-plugins](https://github.com/asdf-vm/asdf-plugins). Metadata is then stored in `plugins.{readme,remote}.json`.
 
