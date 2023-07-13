@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"lib": ["ES2022"],
+		"target": "ES2022",
+		"module": "Node16",
+		"allowJs": true,
+		"checkJs": true,
+		"strict": true
+	}
+}

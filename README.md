@@ -3,17 +3,22 @@
 
 # init
 
-This repository facilitates the management of all other repositories in this organization.
+This repository helps manage all other repositories in this organization.
 
-Extracts all of the repositories listed in [asdf-vm/asdf-plugins](https://github.com/asdf-vm/asdf-plugins). Metadata is then stored in `plugins.{readme,remote}.json`.
+Central to this, is `./main.js`. It:
 
-Then, use this metadata to update repositories that contain all (~650) asdf plugin repositories
-
-- [plugins-format-gitsubtree](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubtree)
-- [plugins-format-googlerepo](https://github.com/asdf-vm-hyperupcall/plugins-format-googlerepo)
-- [plugins-format-gitsubmodule](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubmodule)
+1. Clones and pulls the latest from [asdf-vm/asdf-plugins](https://github.com/asdf-vm/asdf-plugins)
+2. Extracts the list of asdf plugins, validates it, and stores them in `plugins.*.json` files
+3. Generates repositories that contain all of such plugins in a particular way:
+   - [plugins-format-gitsubtree](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubtree)
+   - [plugins-format-googlerepo](https://github.com/asdf-vm-hyperupcall/plugins-format-googlerepo)
+   - [plugins-format-gitsubmodule](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubmodule)
+4. Creates a Terraform config to ensure 1:1 correspondence between listed plugin and a repository in this organization
 
 ## TODO
 
-- [terraform-provider-github](https://github.com/integrations/terraform-provider-github)
-- [hyperupcall/redpanda](https://github.com/hyperupcall/redpanda) rename, rewrite, and use
+- Use a patching system with [hyperupcall/redpanda](https://github.com/hyperupcall/redpanda)
+  - Look into:
+    - [git-series](https://github.com/git-series/git-series)
+    - [Quilt](https://savannah.nongnu.org/projects/quilt)
+    - Manual `git patch`
