@@ -2,5 +2,6 @@ node_modules/
 plugins-format-gitsubmodule/
 plugins-format-gitsubtree/
 plugins-format-googlerepo/
+directory-of-plugins/
 *.env
 .vscode/

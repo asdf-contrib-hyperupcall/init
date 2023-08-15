@@ -8,7 +8,7 @@ terraform {
   }
 
   # backend "remote" {
-  #   organization = "asdf-vm-hyperupcall"
+  #   organization = "asdf-contrib-hyperupcall"
 
   #   workspaces {
   #     name = "github"
@@ -18,7 +18,7 @@ terraform {
 
 # Providers
 provider "github" {
-  owner = "asdf-vm-hyperupcall"
+  owner = "asdf-contrib-hyperupcall"
   token = var.github_token
 }
 

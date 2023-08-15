@@ -1,4 +1,5 @@
 {
+	"include": ["main.js", "src/**.js", "src/commands/clone-repositories.js"],
 	"compilerOptions": {
 		"lib": ["ES2022"],
 		"target": "ES2022",

@@ -10,6 +10,7 @@
 		"**/node_modules/*/**": true,
 		"*-format-*/**": true
 	},
+	"git.detectSubmodules": false,
 	"git.ignoredRepositories": [
 		"plugins-format-gitsubmodule",
 		"plugins-format-gitsubtree",

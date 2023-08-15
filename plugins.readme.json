@@ -100,6 +100,17 @@
 			"ciBadgeSvgUrl": "https://github.com/threkk/asdf-age/workflows/Build/badge.svg?branch=master"
 		},
 		{
+			"repoNamePretty": "age-plugin-yubikey",
+			"repoText": "str4d/age-plugin-yubikey",
+			"repoUrl": "https://github.com/str4d/age-plugin-yubikey",
+			"repoSite": "github.com",
+			"repoOwner": "str4d",
+			"repoName": "age-plugin-yubikey",
+			"ciBadgeUrl": "https://github.com/joke/asdf-age-plugin-yubikey/actions",
+			"ciBadgeText": "GitHub Actions Status",
+			"ciBadgeSvgUrl": "https://github.com/joke/asdf-age-plugin-yubikey/workflows/Build/badge.svg?branch=main"
+		},
+		{
 			"repoNamePretty": "agebox",
 			"repoText": "slok/asdf-agebox",
 			"repoUrl": "https://github.com/slok/asdf-agebox",
@@ -1035,15 +1046,15 @@
 			"ciBadgeSvgUrl": "https://github.com/threkk/asdf-cloudflared/workflows/Build/badge.svg?branch=main"
 		},
 		{
-			"repoNamePretty": "cloudsql-proxy",
-			"repoText": "itspngu/asdf-cloudsql-proxy",
-			"repoUrl": "https://github.com/itspngu/asdf-cloudsql-proxy",
+			"repoNamePretty": "cloud-sql-proxy",
+			"repoText": "pbr0ck3r/asdf-cloud-sql-proxy",
+			"repoUrl": "https://github.com/pbr0ck3r/asdf-cloud-sql-proxy",
 			"repoSite": "github.com",
-			"repoOwner": "itspngu",
-			"repoName": "asdf-cloudsql-proxy",
-			"ciBadgeUrl": "https://github.com/itspngu/asdf-cloudsql-proxy/actions/workflows/test.yml",
+			"repoOwner": "pbr0ck3r",
+			"repoName": "asdf-cloud-sql-proxy",
+			"ciBadgeUrl": "https://github.com/pbr0ck3r/asdf-cloud-sql-proxy/actions/workflows/build.yml",
 			"ciBadgeText": "CI",
-			"ciBadgeSvgUrl": "https://github.com/itspngu/asdf-cloudsql-proxy/workflows/CI/badge.svg"
+			"ciBadgeSvgUrl": "https://github.com/pbr0ck3r/asdf-cloud-sql-proxy/workflows/Build/badge.svg"
 		},
 		{
 			"repoNamePretty": "Clusterawsadm",
@@ -2477,14 +2488,14 @@
 		},
 		{
 			"repoNamePretty": "Go",
-			"repoText": "kennyp/asdf-golang",
-			"repoUrl": "https://github.com/kennyp/asdf-golang",
+			"repoText": "asdf-community/asdf-golang",
+			"repoUrl": "https://github.com/asdf-community/asdf-golang",
 			"repoSite": "github.com",
-			"repoOwner": "kennyp",
+			"repoOwner": "asdf-community",
 			"repoName": "asdf-golang",
-			"ciBadgeUrl": "https://travis-ci.org/kennyp/asdf-golang",
-			"ciBadgeText": "Build Status",
-			"ciBadgeSvgUrl": "https://travis-ci.org/kennyp/asdf-golang.svg?branch=master"
+			"ciBadgeUrl": "https://github.com/asdf-community/asdf-golang/actions/workflows/main.yml",
+			"ciBadgeText": "CI",
+			"ciBadgeSvgUrl": "https://github.com/asdf-community/asdf-golang/actions/workflows/main.yml/badge.svg"
 		},
 		{
 			"repoNamePretty": "go-sdk",
@@ -2573,6 +2584,17 @@
 			"ciBadgeUrl": "https://github.com/therounds-contrib/asdf-goconvey/actions",
 			"ciBadgeText": "Build Status",
 			"ciBadgeSvgUrl": "https://github.com/therounds-contrib/asdf-goconvey/actions/workflows/build.yml/badge.svg"
+		},
+		{
+			"repoNamePretty": "gofumpt",
+			"repoText": "looztra/asdf-gofumpt",
+			"repoUrl": "https://github.com/looztra/asdf-gofumpt",
+			"repoSite": "github.com",
+			"repoOwner": "looztra",
+			"repoName": "asdf-gofumpt",
+			"ciBadgeUrl": "https://github.com/looztra/asdf-gofumpt/actions",
+			"ciBadgeText": "Build Status",
+			"ciBadgeSvgUrl": "https://github.com/looztra/asdf-gofumpt/actions/workflows/build.yml/badge.svg"
 		},
 		{
 			"repoNamePretty": "GoHugo",
@@ -3521,6 +3543,17 @@
 			"ciBadgeSvgUrl": "https://github.com/johnlayton/asdf-kind/workflows/main/badge.svg?branch=master"
 		},
 		{
+			"repoNamePretty": "Kiota",
+			"repoText": "asdf-community/asdf-kiota",
+			"repoUrl": "https://github.com/asdf-community/asdf-kiota",
+			"repoSite": "github.com",
+			"repoOwner": "asdf-community",
+			"repoName": "asdf-kiota",
+			"ciBadgeUrl": "https://github.com/asdf-community/asdf-kiota/actions/workflows/build.yml",
+			"ciBadgeText": "Build Status",
+			"ciBadgeSvgUrl": "https://github.com/asdf-community/asdf-kiota/actions/workflows/build.yml/badge.svg"
+		},
+		{
 			"repoNamePretty": "ki",
 			"repoText": "comdotlinux/asdf-ki",
 			"repoUrl": "https://github.com/comdotlinux/asdf-ki",
@@ -4412,6 +4445,17 @@
 			"ciBadgeSvgUrl": "https://travis-ci.org/asdf-community/asdf-mill.svg?branch=master"
 		},
 		{
+			"repoNamePretty": "minify",
+			"repoText": "axilleas/asdf-minify",
+			"repoUrl": "https://github.com/axilleas/asdf-minify",
+			"repoSite": "github.com",
+			"repoOwner": "axilleas",
+			"repoName": "asdf-minify",
+			"ciBadgeUrl": "https://github.com/axilleas/asdf-minify/actions",
+			"ciBadgeText": "Build Status",
+			"ciBadgeSvgUrl": "https://github.com/axilleas/asdf-minify/workflows/main/badge.svg"
+		},
+		{
 			"repoNamePretty": "Minikube",
 			"repoText": "alvarobp/asdf-minikube",
 			"repoUrl": "https://github.com/alvarobp/asdf-minikube",
@@ -4718,6 +4762,17 @@
 			"ciBadgeUrl": "https://github.com/dex4er/asdf-nsc/actions/workflows/ci.yml",
 			"ciBadgeText": "CI",
 			"ciBadgeSvgUrl": "https://github.com/dex4er/asdf-nsc/actions/workflows/ci.yml/badge.svg"
+		},
+		{
+			"repoNamePretty": "oapi-codegen",
+			"repoText": "dylanrayboss/asdf-oapi-codegen",
+			"repoUrl": "https://github.com/dylanrayboss/asdf-oapi-codegen",
+			"repoSite": "github.com",
+			"repoOwner": "dylanrayboss",
+			"repoName": "asdf-oapi-codegen",
+			"ciBadgeUrl": "https://github.com/dylanrayboss/asdf-oapi-codegen/actions",
+			"ciBadgeText": "Build Status",
+			"ciBadgeSvgUrl": "https://github.com/dylanrayboss/asdf-oapi-codegen/actions/workflows/build.yml/badge.svg"
 		},
 		{
 			"repoNamePretty": "oc",
@@ -5686,6 +5741,17 @@
 			"ciBadgeUrl": "https://github.com/brandon-welsch/asdf-scalingo-cli/actions",
 			"ciBadgeText": "Build Status",
 			"ciBadgeSvgUrl": "https://github.com/brandon-welsch/asdf-scalingo-cli/actions/workflows/build.yml/badge.svg"
+		},
+		{
+			"repoNamePretty": "Scarb",
+			"repoText": "software-mansion/asdf-scarb",
+			"repoUrl": "https://github.com/software-mansion/asdf-scarb",
+			"repoSite": "github.com",
+			"repoOwner": "software-mansion",
+			"repoName": "asdf-scarb",
+			"ciBadgeUrl": "https://github.com/software-mansion/asdf-scarb/actions/workflows/ci.yml",
+			"ciBadgeText": "CI",
+			"ciBadgeSvgUrl": "https://github.com/software-mansion/asdf-scarb/actions/workflows/ci.yml/badge.svg"
 		},
 		{
 			"repoNamePretty": "sccache",
@@ -6863,6 +6929,17 @@
 			"ciBadgeUrl": "https://github.com/ORCID/asdf-transifex/actions/workflows/build.yml",
 			"ciBadgeText": "Build Status",
 			"ciBadgeSvgUrl": "https://github.com/ORCID/asdf-transifex/actions/workflows/build.yml/badge.svg?branch=main"
+		},
+		{
+			"repoNamePretty": "typos",
+			"repoText": "aschiavon91/asdf-typos",
+			"repoUrl": "https://github.com/aschiavon91/asdf-typos",
+			"repoSite": "github.com",
+			"repoOwner": "aschiavon91",
+			"repoName": "asdf-typos",
+			"ciBadgeUrl": "https://github.com/aschiavon91/asdf-typos/actions/workflows/build.yml",
+			"ciBadgeText": "Build Status",
+			"ciBadgeSvgUrl": "https://github.com/aschiavon91/asdf-typos/actions/workflows/build.yml/badge.svg?branch=main"
 		},
 		{
 			"repoNamePretty": "uaa-cli",

@@ -10,9 +10,9 @@ Central to this, is `./main.js`. It:
 1. Clones and pulls the latest from [asdf-vm/asdf-plugins](https://github.com/asdf-vm/asdf-plugins)
 2. Extracts the list of asdf plugins, validates it, and stores them in `plugins.*.json` files
 3. Generates repositories that contain all of such plugins in a particular way:
-   - [plugins-format-gitsubtree](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubtree)
-   - [plugins-format-googlerepo](https://github.com/asdf-vm-hyperupcall/plugins-format-googlerepo)
-   - [plugins-format-gitsubmodule](https://github.com/asdf-vm-hyperupcall/plugins-format-gitsubmodule)
+   - [plugins-format-gitsubtree](https://github.com/asdf-contrib-hyperupcall/plugins-format-gitsubtree)
+   - [plugins-format-googlerepo](https://github.com/asdf-contrib-hyperupcall/plugins-format-googlerepo)
+   - [plugins-format-gitsubmodule](https://github.com/asdf-contrib-hyperupcall/plugins-format-gitsubmodule)
 4. Creates a Terraform config to ensure 1:1 correspondence between listed plugin and a repository in this organization
 
 ## TODO
